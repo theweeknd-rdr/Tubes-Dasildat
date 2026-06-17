@@ -1,13 +1,38 @@
-# Breast Cancer Prediction App
+# Prediksi Depresi Mahasiswa
 
-Aplikasi Streamlit untuk memprediksi breast cancer menggunakan model machine learning yang disimpan dalam folder `model/`.
+Aplikasi Streamlit untuk memprediksi label `depresion` pada data mahasiswa menggunakan model machine learning yang tersimpan di folder `model/`.
 
-## Fitur
+## Model yang Digunakan
 
-- Prediksi manual berdasarkan input fitur.
-- Prediksi batch menggunakan file CSV atau Excel.
-- Pemilihan model dari file `.joblib` atau `.pkl` di folder `model/`.
-- Download hasil prediksi batch dalam format CSV.
+File model utama:
+
+```text
+model/knn_depression_model.joblib
+```
+
+Model tersebut adalah model KNN yang membutuhkan fitur input dalam bentuk numerik atau hasil encoding.
+
+## Fitur Input
+
+Aplikasi menerima fitur berikut dari user:
+
+- `Gender`
+- `Age`
+- `Profession`
+- `Academic Pressure`
+- `CGPA`
+- `Study Satisfaction`
+- `Job Satisfaction`
+- `Sleep Duration`
+- `Dietary Habits`
+- `Degree`
+- `Have you ever had suicidal thoughts ?`
+- `Work/Study Hours`
+- `Financial Stress`
+- `Family History of Mental Illness`
+- `City_freq_City`
+
+Model juga membutuhkan fitur `Work Pressure`. Karena konteks aplikasi adalah mahasiswa, aplikasi mengisi `Work Pressure` secara otomatis dengan nilai `0`.
 
 ## Struktur Proyek
 
@@ -25,9 +50,8 @@ tubes_klasifikas_kelompok7/
 
 ## Cara Menjalankan di Lokal
 
-Aktifkan virtual environment, lalu jalankan aplikasi:
-
 ```powershell
+cd C:\tubes_klasifikas_kelompok7
 venv\Scripts\Activate.ps1
 streamlit run appBC_Batch.py
 ```
@@ -40,25 +64,14 @@ pip install -r requirements.txt
 
 ## Deploy ke Streamlit Community Cloud
 
-1. Push project ini ke GitHub.
-2. Buka Streamlit Community Cloud.
-3. Pilih repository GitHub.
-4. Isi main file path dengan:
+Gunakan konfigurasi berikut:
 
 ```text
-appBC_Batch.py
+Repository: theweeknd-rdr/Tubes-Dasildat
+Branch: Portofolio
+Main file path: appBC_Batch.py
 ```
 
-5. Deploy aplikasi.
+## Catatan Penting
 
-## Catatan Dataset
-
-Model menggunakan fitur berikut:
-
-- `concave points_worst`
-- `perimeter_worst`
-- `concave points_mean`
-- `radius_worst`
-- `perimeter_mean`
-
-Untuk prediksi CSV atau Excel, pastikan nama kolom pada file upload sama persis dengan daftar fitur tersebut.
+Aplikasi ini dibuat untuk kebutuhan pembelajaran dan demonstrasi model machine learning. Hasil prediksi bukan diagnosis medis.
